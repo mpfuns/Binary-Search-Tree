@@ -1,10 +1,11 @@
 //
 import  java.util.*;
-public class main {
+public class Main {
     // Main method to run the program
     public static void main(String[] args) {
-        
-    System.out.println("Hello, in this program we will let you  bulit  Binary Search Tree. We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
+    //introduction to the program
+        System.out.println("Welcome to the Binary Search Tree Program!");   
+    System.out.println("Hello, in this program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
         System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
         System.out.println("You would enter 3 and not the word chicken, then press enter.");
         System.out.println("Let's get started!");
