@@ -1,6 +1,6 @@
 //
 import  java.util.*;
-public class Main {
+public class main {
     // Main method to run the program
     public static void main(String[] args) {
     //introduction to the program
