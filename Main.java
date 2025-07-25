@@ -246,7 +246,8 @@ public class Main {
     public static void addNode(int data) {
         // Implementation for adding a node to the binary search tree
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first.");
+          System.out.println("Please create a binary search tree first. press enter to go back menu.");
+            String enter = scanner.nextLine();
         }
         else {
             tree.addNode(new Node(data)); // Add the node with the given data
@@ -260,7 +261,8 @@ public class Main {
     public static void deleteNode(int data) {
         // Implementation for deleting a node from the binary search tree
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first.");
+            System.out.println("Please create a binary search tree first. press enter to go back menu.");
+            String enter = scanner.nextLine();
         }
         else {
             tree.deleteNode(data); // Delete the node with the given data
@@ -274,7 +276,8 @@ public class Main {
     public static void printInOrder() {
         // Implementation for printing nodes in InOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first.");
+            System.out.println("Please create a binary search tree first. press enter to go back menu.");
+            String enter = scanner.nextLine();
         }
         else if (tree.root == null) {
             System.out.println("The tree is empty.");
@@ -289,7 +292,8 @@ public class Main {
     public static void printPreOrder() {
         // Implementation for printing nodes in PreOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first.");
+            System.out.println("Please create a binary search tree first. press enter to go back menu.");
+            String enter = scanner.nextLine();
         }
         else if (tree.root == null) {
             System.out.println("The tree is empty.");}
@@ -304,7 +308,8 @@ public class Main {
     public static void printPostOrder() {
         // Implementation for printing nodes in PostOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first.");
+            System.out.println("Please create a binary search tree first. press enter to go back menu.");
+            String enter = scanner.nextLine();
         }
         else if (tree.root == null) {
             System.out.println("The tree is empty.");} 
