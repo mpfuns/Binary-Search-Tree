@@ -11,7 +11,7 @@ public class Main {
     }     
 
    }
- class BinarySearchTree {
+  static class BinarySearchTree {
     Node root;
 
     // Constructor to initialize the root of the tree
@@ -142,7 +142,7 @@ public class Main {
         inOrderRecursion(root);
         System.out.println();
     }
-// PreOrder: Root, Left, Right
+// PreOrder: Root, Left, Right (not  correct)
  private void preOrderRecursion(Node root) {
         if (root != null) {
             // print the root first
@@ -158,7 +158,7 @@ public class Main {
         preOrderRecursion(root);
         System.out.println();
     }
-// PostOrder: Left, Right, Root
+// PostOrder: Left, Right, Root (not correct)
  private void postOrderRecursion(Node root) {
             if (root != null) {
                 // go left first
@@ -233,7 +233,7 @@ public class Main {
         // Implementation for creating a binary search tree
         
         
-        for (int i = 1; i < 8; i++) {
+        for (int i = 1; i < 11; i++) {
             // Adding some nodes to the tree with given data
             tree.addNode(new Node(i));
         }
@@ -246,8 +246,8 @@ public class Main {
     public static void addNode(int data) {
         // Implementation for adding a node to the binary search tree
         if(!madeTree) {
-          System.out.println("Please create a binary search tree first. press enter to go back menu.");
-            String enter = scanner.nextLine();
+          System.out.println("Please create a binary search tree first.");
+           
         }
         else {
             tree.addNode(new Node(data)); // Add the node with the given data
@@ -261,24 +261,25 @@ public class Main {
     public static void deleteNode(int data) {
         // Implementation for deleting a node from the binary search tree
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first. press enter to go back menu.");
-            String enter = scanner.nextLine();
+            System.out.println("Please create a binary search tree first.");
+            
         }
         else {
             tree.deleteNode(data); // Delete the node with the given data
             System.out.println("Node with value " + data + " deleted successfully.");
+             
         }
-
-         menu(); // Call the menu function to continue operations
+      menu(); // Call the menu function to continue operations
+       
     }
 
     //Print nodes by InOrder function
     public static void printInOrder() {
         // Implementation for printing nodes in InOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first. press enter to go back menu.");
-            String enter = scanner.nextLine();
+            System.out.println("Please create a binary search tree first.");
         }
+            
         else if (tree.root == null) {
             System.out.println("The tree is empty.");
         }
@@ -292,8 +293,8 @@ public class Main {
     public static void printPreOrder() {
         // Implementation for printing nodes in PreOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first. press enter to go back menu.");
-            String enter = scanner.nextLine();
+            System.out.println("Please create a binary search tree first. ");
+            
         }
         else if (tree.root == null) {
             System.out.println("The tree is empty.");}
@@ -308,8 +309,8 @@ public class Main {
     public static void printPostOrder() {
         // Implementation for printing nodes in PostOrder traversal
         if(!madeTree) {
-            System.out.println("Please create a binary search tree first. press enter to go back menu.");
-            String enter = scanner.nextLine();
+            System.out.println("Please create a binary search tree first.");
+            
         }
         else if (tree.root == null) {
             System.out.println("The tree is empty.");} 
@@ -322,17 +323,16 @@ public class Main {
  // Main method to run the program
 public static void main(String[] args) {
     //introduction to the program
-        System.out.println("Welcome to the Binary Search Tree Program!");   
+    System.out.println("Welcome to the Binary Search Tree Program!");   
     System.out.println("In this program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
-        System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
-        System.out.println("You would enter 3 and not the word chicken, then press enter.");
-        System.out.println(" press enter to continue");
-        String enter = scanner.nextLine(); // Wait for user to press enter
-    
-        menu(); // Call the menu function to start the program
-  }
-  
+    System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
+    System.out.println("You would enter 3 and not the word chicken, then press enter.");
+    System.out.println(" press enter to continue");
+    String enter = scanner.nextLine(); // Wait for user to press enter
 
+    tree = new BinarySearchTree(); // Initialize the tree before use
+    menu(); // Call the menu function to start the program
+}
 
 }
 
