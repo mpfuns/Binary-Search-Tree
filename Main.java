@@ -238,7 +238,6 @@ public class Main {
         System.out.println("Binary Search Tree created successfully.");
         menu();
     }
-
     //Add a node function
     public static void addNode(int data) {
         // Implementation for adding a node to the binary search tree
