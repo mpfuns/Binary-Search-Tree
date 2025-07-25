@@ -230,16 +230,13 @@ public class Main {
     
     //Create a binary search tree function 
     public static void createBinarySearchTree() {
-        // Implementation for creating a binary search tree
-        
-        
-        for (int i = 1; i < 11; i++) {
-            // Adding some nodes to the tree with given data
-            tree.addNode(new Node(i));
+        int[] values = {5, 2, 8, 1, 3, 6, 9, 0, 4, 7, 10};
+        for (int v : values) {
+            tree.addNode(new Node(v));
         }
-        madeTree = true; // Set the flag to true indicating the tree is created
+        madeTree = true;
         System.out.println("Binary Search Tree created successfully.");
-        menu(); // Call the menu function to continue operations
+        menu();
     }
 
     //Add a node function
