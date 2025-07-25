@@ -2,15 +2,15 @@
 import  java.util.*;
 public class Main {
     //  defining a Node for a binary tree
-    class Node{
+  static class Node{
     int data;
     Node left;
     Node right;
      Node(int data){
       this.data = data;
     }     
-}
-  
+
+   }
  class BinarySearchTree {
     Node root;
 
@@ -60,8 +60,8 @@ public class Main {
         return searchRecursion(root, data);
     }
 
-//  balence rule with delection
- private int smallestRight(Node root) {
+  //  balence rule with delection
+   private int smallestRight(Node root) {
         // Find the smallest value in the right subtree
         root = root.right;
         
@@ -70,7 +70,7 @@ public class Main {
         }
         return root.data;
     }
-private int largestLeft(Node root) {
+   private int largestLeft(Node root) {
         // Find the largest value in the left subtree
         root = root.left;
         
@@ -80,7 +80,7 @@ private int largestLeft(Node root) {
         return root.data;
     }
 
-// deleting a node from the tree
+ // deleting a node from the tree
     private Node deleteRecursion(Node root, int data) {
          if(root == null) {
       return root;
@@ -124,32 +124,71 @@ private int largestLeft(Node root) {
       System.out.println(data + " could not be found");
     }
     }
-}
+   // Traversal methods for printing nodes in different orders
+// InOrder: Left, Root, Right
 
-// Traversal methods for printing nodes in different orders
-
-private void inOrderRecursion(Node root) {
+ private void inOrderRecursion(Node root) {
         if (root != null) {
+            // need to go left first
             inOrderRecursion(root.left);
+            // then print the root
             System.out.print(root.data + " ");
+            // then go right
             inOrderRecursion(root.right);
         }
     }
-    
+ public void printInOrder() {
+        System.out.print("InOrder: ");
+        inOrderRecursion(root);
+        System.out.println();
+    }
+// PreOrder: Root, Left, Right
+ private void preOrderRecursion(Node root) {
+        if (root != null) {
+            // print the root first
+            System.out.print(root.data + " ");
+            // then go left
+            preOrderRecursion(root.left);
+            // then go right
+            preOrderRecursion(root.right);
+        }
+    }
+ public void printPreOrder() {
+        System.out.print("PreOrder: ");
+        preOrderRecursion(root);
+        System.out.println();
+    }
+// PostOrder: Left, Right, Root
+ private void postOrderRecursion(Node root) {
+            if (root != null) {
+                // go left first
+                postOrderRecursion(root.left);
+                // then go right
+                postOrderRecursion(root.right);
+                // then print the root
+                System.out.print(root.data + " ");
+            }
+        }
+ public void printPostOrder() {
+        System.out.print("PostOrder: ");
+        postOrderRecursion(root);
+        System.out.println();
+    }
 
+}
+   // Holder for the BinarySearchTree
 
-
-
-
-    
-    
-    // Main method to run the program
-    
+    static BinarySearchTree tree = null; // Declare as static for global access
+    static boolean madeTree = false;     // Declare as static for global access
+    // Scanner for user input
+    static Scanner scanner = new Scanner(System.in); // Declare Scanner as static for global access
+  
   //menu  function 
   public static void menu() {
-     Scanner scanner = new Scanner(System.in);
+
      int choice;
     String[] options = {"Create a binary search tree", "Add a node", "Delete a node", "Print nodes by InOrder", "Print nodes by PreOrder", "Print nodes by PostOrder", "Exit program"};
+       System.out.println("Binary Search Tree Menu:");  
        System.out.println("Binary Search Tree Menu:");  
     for (int i = 0; i < options.length; i++) {
         System.out.println((i + 1) + ". " + options[i]);
@@ -181,6 +220,7 @@ private void inOrderRecursion(Node root) {
             break;
         case 7:
             System.out.println("Exiting program.");
+            scanner.close(); // Close the scanner to prevent resource leaks
             System.exit(0);
         default:
             System.out.println("Invalid choice. Please try again.");
@@ -191,6 +231,13 @@ private void inOrderRecursion(Node root) {
     //Create a binary search tree function 
     public static void createBinarySearchTree() {
         // Implementation for creating a binary search tree
+        
+        
+        for (int i = 1; i < 8; i++) {
+            // Adding some nodes to the tree with given data
+            tree.addNode(new Node(i));
+        }
+        madeTree = true; // Set the flag to true indicating the tree is created
         System.out.println("Binary Search Tree created successfully.");
         menu(); // Call the menu function to continue operations
     }
@@ -198,6 +245,13 @@ private void inOrderRecursion(Node root) {
     //Add a node function
     public static void addNode(int data) {
         // Implementation for adding a node to the binary search tree
+        if(!madeTree) {
+            System.out.println("Please create a binary search tree first.");
+        }
+        else {
+            tree.addNode(new Node(data)); // Add the node with the given data
+            System.out.println("Node with value " + data + " added successfully.");
+        }
 
          menu(); // Call the menu function to continue operations
     }
@@ -205,6 +259,13 @@ private void inOrderRecursion(Node root) {
     //Delete a node function
     public static void deleteNode(int data) {
         // Implementation for deleting a node from the binary search tree
+        if(!madeTree) {
+            System.out.println("Please create a binary search tree first.");
+        }
+        else {
+            tree.deleteNode(data); // Delete the node with the given data
+            System.out.println("Node with value " + data + " deleted successfully.");
+        }
 
          menu(); // Call the menu function to continue operations
     }
@@ -212,13 +273,29 @@ private void inOrderRecursion(Node root) {
     //Print nodes by InOrder function
     public static void printInOrder() {
         // Implementation for printing nodes in InOrder traversal
-
+        if(!madeTree) {
+            System.out.println("Please create a binary search tree first.");
+        }
+        else if (tree.root == null) {
+            System.out.println("The tree is empty.");
+        }
+        else{
+        tree.printInOrder(); // Call the method to print nodes in InOrder
+        }
          menu(); // Call the menu function to continue operations
     }
     
     //Print nodes by PreOrder function
     public static void printPreOrder() {
         // Implementation for printing nodes in PreOrder traversal
+        if(!madeTree) {
+            System.out.println("Please create a binary search tree first.");
+        }
+        else if (tree.root == null) {
+            System.out.println("The tree is empty.");}
+        else{
+            tree.printPreOrder(); // Call the method to print nodes in PreOrder
+        }
 
          menu(); // Call the menu function to continue operations
     }
@@ -226,17 +303,26 @@ private void inOrderRecursion(Node root) {
     //Print nodes by PostOrder function
     public static void printPostOrder() {
         // Implementation for printing nodes in PostOrder traversal
+        if(!madeTree) {
+            System.out.println("Please create a binary search tree first.");
+        }
+        else if (tree.root == null) {
+            System.out.println("The tree is empty.");} 
+        else{
+            tree.printPostOrder(); // Call the method to print nodes in PostOrder
+        }
 
          menu(); // Call the menu function to continue operations
     }
-
+ // Main method to run the program
 public static void main(String[] args) {
     //introduction to the program
         System.out.println("Welcome to the Binary Search Tree Program!");   
-    System.out.println("Hello, in this program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
+    System.out.println("Hello, inthe Binary Search Tree Program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
         System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
         System.out.println("You would enter 3 and not the word chicken, then press enter.");
         System.out.println("Let's get started!");
+        
         menu(); // Call the menu function to start the program
   }
   
