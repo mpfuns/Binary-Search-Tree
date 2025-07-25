@@ -188,7 +188,7 @@ public class Main {
 
      int choice;
     String[] options = {"Create a binary search tree", "Add a node", "Delete a node", "Print nodes by InOrder", "Print nodes by PreOrder", "Print nodes by PostOrder", "Exit program"};
-       System.out.println("Binary Search Tree Menu:");  
+    // Display the menu options
        System.out.println("Binary Search Tree Menu:");  
     for (int i = 0; i < options.length; i++) {
         System.out.println((i + 1) + ". " + options[i]);
@@ -318,11 +318,12 @@ public class Main {
 public static void main(String[] args) {
     //introduction to the program
         System.out.println("Welcome to the Binary Search Tree Program!");   
-    System.out.println("Hello, inthe Binary Search Tree Program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
+    System.out.println("In this program we will let you  bulit  Binary Search Tree and be able to edit them . We will give you options to pick so please enter numbers that associate with the option and not type in the words. ");
         System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
         System.out.println("You would enter 3 and not the word chicken, then press enter.");
-        System.out.println("Let's get started!");
-        
+        System.out.println(" press enter to continue");
+        String enter = scanner.nextLine(); // Wait for user to press enter
+    
         menu(); // Call the menu function to start the program
   }
   
