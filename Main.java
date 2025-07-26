@@ -1,4 +1,7 @@
-//
+
+
+
+//import everything we need for the program
 import  java.util.*;
 public class Main {
     //  defining a Node for a binary tree
@@ -60,7 +63,7 @@ public class Main {
         return searchRecursion(root, data);
     }
 
-  //  balence rule with delection
+  //  balance rules with deletion
    private int smallestRight(Node root) {
         // Find the smallest value in the right subtree
         root = root.right;
@@ -142,7 +145,7 @@ public class Main {
         inOrderRecursion(root);
         System.out.println();
     }
-// PreOrder: Root, Left, Right (not  correct)
+// PreOrder: Root, Left, Right 
  private void preOrderRecursion(Node root) {
         if (root != null) {
             // print the root first
@@ -158,7 +161,7 @@ public class Main {
         preOrderRecursion(root);
         System.out.println();
     }
-// PostOrder: Left, Right, Root (not correct)
+// PostOrder: Left, Right, Root 
  private void postOrderRecursion(Node root) {
             if (root != null) {
                 // go left first
@@ -325,6 +328,7 @@ public static void main(String[] args) {
     System.out.println("Here is an example: Who walked across the road?  1.Dog 2.Cat 3.Chicken.");
     System.out.println("You would enter 3 and not the word chicken, then press enter.");
     System.out.println(" press enter to continue");
+    // allow user to  have time to read the introduction before seeing the menu
     String enter = scanner.nextLine(); // Wait for user to press enter
 
     tree = new BinarySearchTree(); // Initialize the tree before use
