@@ -230,7 +230,8 @@ public class Main {
     
     //Create a binary search tree function 
     public static void createBinarySearchTree() {
-        int[] values = {5, 2, 8, 1, 3, 6, 9, 0, 4, 7, 10};
+         //given default data
+        int[] values = {4, 2, 6, 1, 3, 5, 7};
         for (int v : values) {
             tree.addNode(new Node(v));
         }
